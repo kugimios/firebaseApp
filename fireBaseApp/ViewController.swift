@@ -7,8 +7,25 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class ViewController: UIViewController {
+    
+    @IBOutlet weak var nameTextFieldOutlet: UITextField!
+    
+    
+    @IBAction func addButtonAction(_ sender: UIButton) {
+        
+        ref = Database.database().reference()
+        
+        if nameTextFieldOutlet.text != "" {
+            ref?.child("list").childByAutoId().setValue(nameTextFieldOutlet.text)
+        }
+        
+    }
+    
+    var myList: [String] = []
+    var ref: DatabaseReference?
 
     override func viewDidLoad() {
         super.viewDidLoad()
