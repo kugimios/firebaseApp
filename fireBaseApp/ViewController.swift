@@ -20,7 +20,10 @@ class ViewController: UIViewController {
         
         if nameTextFieldOutlet.text != "" {
             ref?.child("list").childByAutoId().setValue(nameTextFieldOutlet.text)
+            ref?.child("name").childByAutoId().setValue(nameTextFieldOutlet.text)
         }
+        
+        print("Text Field Added")
         
     }
     
